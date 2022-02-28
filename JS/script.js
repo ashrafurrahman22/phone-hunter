@@ -1,5 +1,5 @@
 const phoneDiv = document.getElementById('card-Group');
-const detailsDiv = document.getElementById('details')
+const detailsDiv = document.getElementById('details');
 
 const loadPhones = () => {
     const searchValue = document.getElementById('searchInput').value;
@@ -13,6 +13,13 @@ const loadPhones = () => {
 }
 
 const displayPhone = (phones) => {
+
+    phoneDiv.style.display = 'block';
+    detailsDiv.textContent = '';
+
+    // replace display with new search 
+    phoneDiv.textContent = '';
+
     // console.log(phones);
     phones.forEach(phone => {
        
@@ -22,10 +29,8 @@ newDiv.innerHTML = `
 <img src="${phone.image}" class="card-img-top w-100" alt="...">
 <div class="card-body">
   <h5 class="card-title">Name: ${phone.phone_name}</h5>
-  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  <h5 class="card-title">Brand: ${phone.brand}</h5>
   <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-secondary" type="button">Details</button>
-</div>
 </div>
 </div>
 `;
@@ -41,5 +46,20 @@ const loadDetails = (id) => {
 }
 
 const displayPhoneDetails = (details) => {
+
     console.log(details);
+
+    const newDiv2 = document.createElement('div');
+    newDiv2.innerHTML = `
+    <div class="card mb-3 p-3 rounded-3" style="width: 18rem;">
+<img src="${details.data.image}" class="card-img-top w-100" alt="...">
+<div class="card-body">
+  <h5 class="card-title">Name: ${details.data.phone_name}</h5>
+  <h5 class="card-title">Name: ${details.data.phone_name}</h5>
+  <button onclick="loadDetails('${details.slug}')" class="btn btn-outline-secondary" type="button">Details</button>
+</div>
+</div>    
+    `;
+    detailsDiv.appendChild(newDiv2);
+    phoneDiv.style.display = 'none';
 }
