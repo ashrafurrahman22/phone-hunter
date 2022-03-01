@@ -39,24 +39,22 @@ const searchPhone = () => {
 }
 
 const displaySearchResult = phones => {
-      console.log(phones);
+      // console.log(phones.slice(0, 20));
 
         if(phones.length == 0) {
             // console.log('yes');
             detailErrorMsg.classList.remove('d-none');
             detailErrorDiv.appendChild(detailErrorMsg);
-        } 
-
-        else{ 
-
-            
+        }
+        else{             
 
             detailErrorDiv.classList.add('d-none');            
 
             // clean the display for new search
                  searchResult.textContent ='';
 
-    phones.forEach(phone => {
+    phones.slice(0, 20).forEach(phone => {
+
         // console.log(phone);
         const div = document.createElement('div');
         div.classList.add('col');
