@@ -1,4 +1,4 @@
-const phoneDiv = document.getElementById('card-Group');
+const phoneDiv = document.getElementById('displayCard');
 const detailsDiv = document.getElementById('details');
 
 const loadPhones = () => {
@@ -24,8 +24,9 @@ const displayPhone = (phones) => {
     phones.forEach(phone => {
        
 const newDiv = document.createElement('div');
-newDiv.innerHTML = `
-<div class="card mb-3 p-3 rounded-3" style="width: 18rem;">
+// newDiv.classList.add('col');
+
+newDiv.innerHTML = `<div class="card mb-3 p-3 rounded-3" style="width: 18rem;">
 <img src="${phone.image}" class="card-img-top w-100" alt="...">
 <div class="card-body">
   <h5 class="card-title">Name: ${phone.phone_name}</h5>
@@ -33,6 +34,8 @@ newDiv.innerHTML = `
   <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-secondary" type="button">Details</button>
 </div>
 </div>
+</div>
+
 `;
 phoneDiv.appendChild(newDiv);
     })
@@ -54,12 +57,17 @@ const displayPhoneDetails = (details) => {
     <div class="card mb-3 p-3 rounded-3" style="width: 18rem;">
 <img src="${details.data.image}" class="card-img-top w-100" alt="...">
 <div class="card-body">
-  <h5 class="card-title">Name: ${details.data.phone_name}</h5>
-  <h5 class="card-title">Name: ${details.data.phone_name}</h5>
-  <button onclick="loadDetails('${details.slug}')" class="btn btn-outline-secondary" type="button">Details</button>
+  <h5 class="card-title">Name: ${details.data.name}</h5>
+  <h6 class="card-title">Realse Date: ${details.data.releaseDate}</h6>
+  <h5 class="card-title">Brand: ${details.data.brand}</h5>
+    
 </div>
 </div>    
     `;
     detailsDiv.appendChild(newDiv2);
     phoneDiv.style.display = 'none';
 }
+
+
+
+
