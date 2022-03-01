@@ -20,6 +20,7 @@ const searchPhone = () => {
     }
     else{
         inputErrorMsg.classList.add('d-none')
+
     const url= `https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
 
     fetch(url)
@@ -42,12 +43,12 @@ const displaySearchResult = phones => {
 
         else{ 
 
-            detailErrorDiv.classList.add('d-none');
+            
+
+            detailErrorDiv.classList.add('d-none');            
 
             // clean the display for new search
                  searchResult.textContent ='';
-
-
 
     phones.forEach(phone => {
         // console.log(phone);
@@ -79,7 +80,7 @@ const loadDetails = id => {
 }
 
 const displayPhoneDetails = details => {
-    // console.log(details);
+    console.log(details);
 
     // clean details div for new search
     displayDetails.textContent ='';
@@ -89,10 +90,23 @@ const displayPhoneDetails = details => {
     detailsDiv.innerHTML = `
     <div class="card" >
           <img src="${details.data.image}" class="card-img-top w-50 p-4 mx-auto" alt="...">
-          <div class="card-body p-5 text-center">
-            <h5 class="card-title">${details.data.name}</h5>
-            <h6 class="card-title">Realse Date: ${details.data.releaseDate}</h6>
-  <h5 class="card-title">Brand: ${details.data.brand}</h5>
+          <div class="card-body p-5">
+            <h5 class="card-title text-center">${details.data.name}</h5>
+            <h6 class="card-title text-center">Realse Date: ${details.data.releaseDate}</h6>
+            <h5 class="card-title text-center">Brand: ${details.data.brand}</h5>
+            <h6 class="card-title text-center">Sensor</h6>
+            <div class="text-center">
+            <ol class="style-none">
+                <li>${details.data.mainFeatures.sensors[0]}</li>
+                <li>${details.data.mainFeatures.sensors[1]}</li>
+                <li>${details.data.mainFeatures.sensors[2]}</li>
+                <li>${details.data.mainFeatures.sensors[3]}</li>
+                <li>${details.data.mainFeatures.sensors[4]}</li>
+                <li>${details.data.mainFeatures.sensors[5]}</li>
+                <li>${details.data.mainFeatures.sensors[6]}</li>  
+            </ol>
+            </div>
+
           </div>
         </div>
     `;
