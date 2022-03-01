@@ -39,6 +39,7 @@ const searchPhone = () => {
 }
 
 const displaySearchResult = phones => {
+      console.log(phones);
 
         if(phones.length == 0) {
             // console.log('yes');
@@ -86,7 +87,7 @@ const loadDetails = id => {
 }
 
 const displayPhoneDetails = details => {
-    console.log(details);
+    // console.log(details);
 
     // clean details div for new search
     displayDetails.textContent ='';
