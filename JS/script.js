@@ -85,7 +85,7 @@ const loadDetails = id => {
 }
 
 const displayPhoneDetails = details => {
-    console.log(details);
+    // console.log(details);
 
     // clean details div for new search
     displayDetails.textContent ='';
@@ -101,7 +101,7 @@ const displayPhoneDetails = details => {
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">Name: ${details.data.name}</h5>
-          <h6 class="card-title">Realse Date: ${details.data.releaseDate? data.releaseDate: 'No Release Date Found'}</h6>
+          <h6 class="card-title">Realse Date: ${details.data.releaseDate? details.data.releaseDate: 'No Release Date Found'}</h6>
             <h5 class="card-title">Brand: ${details.data.brand}</h5>
             <h3 class="mt-3">Specifications</h3>
             <h6 class="card-title">Storage: ${details.data.mainFeatures.storage}</h6>
