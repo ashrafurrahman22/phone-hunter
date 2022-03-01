@@ -60,7 +60,7 @@ const displaySearchResult = phones => {
             <div class="card-body p-5 text-center">
                  <h5 class="card-title">Name: ${phone.phone_name}</h5>
                  <h5 class="card-title">Brand: ${phone.brand}</h5>
-                 <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-secondary" type="button">Details</button>
+                 <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-secondary" type="button">Details>></button>
                 
             </div>
           </div>
