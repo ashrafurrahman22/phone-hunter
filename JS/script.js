@@ -34,7 +34,6 @@ const searchPhone = () => {
 
 const displaySearchResult = phones => {
 
-
         if(phones.length == 0) {
             // console.log('yes');
             detailErrorMsg.classList.remove('d-none');
@@ -46,7 +45,7 @@ const displaySearchResult = phones => {
             detailErrorDiv.classList.add('d-none');
 
             // clean the display for new search
-    searchResult.textContent ='';
+                 searchResult.textContent ='';
 
 
 
@@ -66,11 +65,8 @@ const displaySearchResult = phones => {
           </div>
         `;
         searchResult.appendChild(div);
-    })
-
-        }
-   
-    
+     })
+     }
 }
 
 
