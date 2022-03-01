@@ -1,5 +1,5 @@
 const searchResult = document.getElementById('search-result');
-const displayDetails = document.getElementById('meal-details');
+const displayDetails = document.getElementById('phone-details');
 
 // input field errors
 const inputErrorDiv = document.getElementById('inputError-div');
@@ -58,7 +58,7 @@ const displaySearchResult = phones => {
         <div class="card">
             <img src="${phone.image}" class="card-img-top w-75 p-4 mx-auto" alt="...">
             <div class="card-body p-5 text-center">
-                 <h5 class="card-title">${phone.phone_name}</h5>
+                 <h5 class="card-title">Name: ${phone.phone_name}</h5>
                  <h5 class="card-title">Brand: ${phone.brand}</h5>
                  <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-secondary" type="button">Details</button>
                 
@@ -86,31 +86,44 @@ const displayPhoneDetails = details => {
     displayDetails.textContent ='';
 
     const detailsDiv   =  document.createElement('div');
-    detailsDiv.classList.add('card');
+    detailsDiv.classList.add('col');
     detailsDiv.innerHTML = `
     <div class="card" >
-          <img src="${details.data.image}" class="card-img-top w-50 p-4 mx-auto" alt="...">
+          <img src="${details.data.image}" class="card-img-top img-fluid p-4 mx-auto" alt="image">
           <div class="card-body p-5">
             <h5 class="card-title text-center">${details.data.name}</h5>
             <h6 class="card-title text-center">Realse Date: ${details.data.releaseDate}</h6>
             <h5 class="card-title text-center">Brand: ${details.data.brand}</h5>
-            <h6 class="card-title text-center">Sensor</h6>
-            <div class="text-center">
-            <ol class="style-none">
-                <li>${details.data.mainFeatures.sensors[0]}</li>
-                <li>${details.data.mainFeatures.sensors[1]}</li>
-                <li>${details.data.mainFeatures.sensors[2]}</li>
-                <li>${details.data.mainFeatures.sensors[3]}</li>
-                <li>${details.data.mainFeatures.sensors[4]}</li>
-                <li>${details.data.mainFeatures.sensors[5]}</li>
-                <li>${details.data.mainFeatures.sensors[6]}</li>  
-            </ol>
+            <h3 class="ms-3 mt-3">Specifications</h3>
+           <div class="d-lg-flex">
+           <div>
+           <h6 class="card-title ms-3">Sensors</h6>
+           <ol>
+               <li>${details.data.mainFeatures.sensors[0]}</li>
+               <li>${details.data.mainFeatures.sensors[1]}</li>
+               <li>${details.data.mainFeatures.sensors[2]}</li>
+               <li>${details.data.mainFeatures.sensors[3]}</li>
+               <li>${details.data.mainFeatures.sensors[4]}</li>
+               <li>${details.data.mainFeatures.sensors[5]}</li>  
+           </ol>
+           </div>
+           <div class="ms-3">
+           <h6 class="card-title ms-3">Others</h6>
+           <ol>
+               <li>Bluetooth: ${details.data.others.Bluetooth}</li>
+               <li>GPS: ${details.data.others.GPS}</li>
+               <li>NFC: ${details.data.others.NFC}</li>
+               <li>Radio: ${details.data.others.Radio}</li>
+               <li>USB: ${details.data.others.USB}</li>
+               <li>WLAN: ${details.data.others.WLAN}</li>
+                
+           </ol>
+           </div>
             </div>
-
           </div>
         </div>
     `;
     displayDetails.appendChild(detailsDiv);
-    searchResult.style.display = 'none';
+    // searchResult.style.display = 'none';
     
 }

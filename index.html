@@ -7,38 +7,39 @@
     <title>Seaching Phone</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-info">
         <!-- heading -->
-    <h1 class="text-center m-3 p-3">Search Your favourite phone</h1>
+    <h1 class="text-center mt-4">Dazzle Mobile Shop</h1>
 
      <!-- phone search area  -->
-     <div class="input-group mb-3 mx-auto w-50">
+     <div class="input-group mt-3 mx-auto w-50">
       <input id="search-field" type="text" class="form-control" placeholder="search your favourite phone" aria-label="Recipient's username" aria-describedby="button-addon2">
       <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
     </div>
 
+      <!-- input error section  -->
       <div id="inputError-div">
-          <h4 id="inputError-msg" class="d-none text-center text-warning">Please, type phone name</h4>
-          
+          <h4 id="inputError-msg" class="d-none text-center text-black">Please, type phone name</h4>
       </div>
+
+
+      <!-- details error section -->
       <div id="detailsError-div">
-          <h3 id="detailsError-msg" class="d-none text-center text-warning">No Phone Found</h3>
-          
+          <h3 id="detailsError-msg" class="d-none text-center text-black">No Phone Found</h3>
       </div>
 
       <!-- phone details area  -->
-      <div id="meal-details" class="w-50 mx-auto">
+        <section>
+          <div id="phone-details" class="row row-cols-1 row-cols-lg-2 g-4 rounded-3 p-5">
         
-      </div>
-
+          </div>
+        </section>
 
       <!-- phone search result -->
-      <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
-        
-       
-        </div>
-        
-      </div>
+      <section class="my-2">
+        <div id="search-result" class="row row-cols-1 row-cols-lg-3 g-4 rounded-3"></div>
+      </section>
+      
 
 
 
