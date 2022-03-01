@@ -99,6 +99,7 @@ const displayPhoneDetails = details => {
           <h6 class="card-title">Realse Date: ${details.data.releaseDate}</h6>
             <h5 class="card-title">Brand: ${details.data.brand}</h5>
             <h3 class="mt-3">Specifications</h3>
+            <h6 class="card-title">Memory: ${details.data.mainFeatures.memory}</h6>
             <div class="d-lg-flex">
            <div>
            <h6 class="card-title ms-3">Sensors</h6>
