@@ -1,73 +1,73 @@
-const phoneDiv = document.getElementById('displayCard');
-const detailsDiv = document.getElementById('details');
+const searchResult = document.getElementById('search-result');
+const displayDetails = document.getElementById('meal-details');
 
-const loadPhones = () => {
-    const searchValue = document.getElementById('searchInput').value;
-    document.getElementById('searchInput').value = '';    
-    // console.log(searchValue);
+const searchPhone = () => {
+    const searchValue = document.getElementById('search-field').value;
 
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
+    // clear input value
+    // searchField.value ='';
+
+    const url= `https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
+
     fetch(url)
     .then(res => res.json())
-    .then(data => displayPhone(data.data))
+    .then(data => displaySearchResult(data.data))
+    // .then(data => console.log(data))
+
+    .catch(error => console.log(error));
 }
 
-const displayPhone = (phones) => {
+const displaySearchResult = phones => {
 
-    phoneDiv.style.display = 'block';
-    detailsDiv.textContent = '';
+    // clean the display for new search
+    searchResult.textContent ='';
 
-    // replace display with new search 
-    phoneDiv.textContent = '';
-
-    // console.log(phones);
     phones.forEach(phone => {
-       
-const newDiv = document.createElement('div');
-newDiv.classList.add('col');
-newDiv.innerHTML = `
-<div class="card rounded-3" style="width: 18rem;">
-<img src="${phone.image}" class="card-img-top w-100" alt="...">
-<div class="card-body">
-  <h5 class="card-title">Name: ${phone.phone_name}</h5>
-  <h5 class="card-title">Brand: ${phone.brand}</h5>
-  <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-secondary" type="button">Details</button>
-</div>
-</div>
-</div>
-
-`;
-phoneDiv.appendChild(newDiv);
+        // console.log(phone);
+        const div = document.createElement('div');
+        div.classList.add('col');
+        div.innerHTML =`
+        <div class="card">
+            <img src="${phone.image}" class="card-img-top w-50" alt="...">
+            <div class="card-body">
+                 <h5 class="card-title">${phone.phone_name}</h5>
+                 <h5 class="card-title">Brand: ${phone.brand}</h5>
+                 <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-secondary" type="button">Details</button>
+                
+            </div>
+          </div>
+        `;
+        searchResult.appendChild(div);
     })
 }
 
-const loadDetails = (id) => {
-    const url2 = `https://openapi.programming-hero.com/api/phone/${id}`
-    fetch(url2)
-    .then(res=> res.json())
-    .then(data=> displayPhoneDetails(data))
+
+const loadDetails = id => {
+    // console.log(id);
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayPhoneDetails(data))
 }
 
-const displayPhoneDetails = (details) => {
+const displayPhoneDetails = details => {
+    // console.log(meal);
 
-    console.log(details);
+    // clean details div for new search
+    // mealDetails.textContent ='';
 
-    const newDiv2 = document.createElement('div');
-    newDiv2.innerHTML = `
-    <div class="card mb-3 p-3 rounded-3" style="width: 18rem;">
-<img src="${details.data.image}" class="card-img-top w-100" alt="...">
-<div class="card-body">
-  <h5 class="card-title">Name: ${details.data.name}</h5>
-  <h6 class="card-title">Realse Date: ${details.data.releaseDate}</h6>
+    const detailsDiv   =  document.createElement('div');
+    detailsDiv.classList.add('card');
+    detailsDiv.innerHTML = `
+    <div class="card" >
+          <img src="${details.data.image}" class="card-img-top w-50 p-5" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${details.data.name}</h5>
+            <h6 class="card-title">Realse Date: ${details.data.releaseDate}</h6>
   <h5 class="card-title">Brand: ${details.data.brand}</h5>
-    
-</div>
-</div>    
+          </div>
+        </div>
     `;
-    detailsDiv.appendChild(newDiv2);
-    phoneDiv.style.display = 'none';
+    displayDetails.appendChild(detailsDiv);
+    
 }
-
-
-
-
