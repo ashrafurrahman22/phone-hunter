@@ -9,10 +9,15 @@ const inputErrorMsg = document.getElementById('inputError-msg');
 const detailErrorDiv = document.getElementById('detailsError-div');
 const detailErrorMsg = document.getElementById('detailsError-msg');
 
+// spinner function
+const tooggleSpinner = displaySpinner => document.getElementById('spinner').style.display = displaySpinner;
+
 const searchPhone = () => {
     const searchValue = document.getElementById('search-field').value;
     // clean the input box
     document.getElementById('search-field').value = '';
+
+      tooggleSpinner('block');
 
     if(searchValue == 0) {
         inputErrorMsg.classList.remove('d-none');
@@ -67,6 +72,7 @@ const displaySearchResult = phones => {
         `;
         searchResult.appendChild(div);
      })
+     tooggleSpinner('none');
      }
 }
 

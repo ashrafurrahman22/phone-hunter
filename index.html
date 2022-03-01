@@ -5,17 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seaching Phone</title>
+
+    <!-- vanila css link  -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 </head>
 <body class="bg-info">
         <!-- heading -->
-    <h1 class="text-center mt-4">Dazzle Mobile Shop</h1>
+    <h1 class="text-center mt-4">Mobile Paradise</h1>
 
      <!-- phone search area  -->
      <div class="input-group mt-3 mx-auto w-50">
       <input id="search-field" type="text" class="form-control" placeholder="search your favourite phone" aria-label="Recipient's username" aria-describedby="button-addon2">
       <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
     </div>
+
+        <!-- spinner section  -->
+        <section class="mx-auto mt-4 w-50 text-center">
+          <div id="spinner" class="text-center mx-auto spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </section>
 
       <!-- input error section  -->
       <div id="inputError-div" class="mt-3">
