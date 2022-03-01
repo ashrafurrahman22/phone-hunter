@@ -24,9 +24,9 @@ const displayPhone = (phones) => {
     phones.forEach(phone => {
        
 const newDiv = document.createElement('div');
-// newDiv.classList.add('col');
-
-newDiv.innerHTML = `<div class="card mb-3 p-3 rounded-3" style="width: 18rem;">
+newDiv.classList.add('col');
+newDiv.innerHTML = `
+<div class="card rounded-3" style="width: 18rem;">
 <img src="${phone.image}" class="card-img-top w-100" alt="...">
 <div class="card-body">
   <h5 class="card-title">Name: ${phone.phone_name}</h5>
