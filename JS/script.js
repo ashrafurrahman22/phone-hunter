@@ -88,7 +88,59 @@ const displayPhoneDetails = details => {
     const detailsDiv   =  document.createElement('div');
     detailsDiv.classList.add('col');
     detailsDiv.innerHTML = `
-    <div class="card" >
+    <div class="card mb-3 mx-auto p-2" style="max-width: 740px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="${details.data.image}" class="w-100 ms-3 p-3 rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Name: ${details.data.name}</h5>
+          <h6 class="card-title">Realse Date: ${details.data.releaseDate}</h6>
+            <h5 class="card-title">Brand: ${details.data.brand}</h5>
+            <h3 class="mt-3">Specifications</h3>
+            <div class="d-lg-flex">
+           <div>
+           <h6 class="card-title ms-3">Sensors</h6>
+           <ol>
+               <li>${details.data.mainFeatures.sensors[0]}</li>
+               <li>${details.data.mainFeatures.sensors[1]}</li>
+               <li>${details.data.mainFeatures.sensors[2]}</li>
+               <li>${details.data.mainFeatures.sensors[3]}</li>
+               <li>${details.data.mainFeatures.sensors[4]}</li>
+               <li>${details.data.mainFeatures.sensors[5]}</li>  
+           </ol>
+           </div>
+           <div class="ms-3">
+           <h6 class="card-title ms-3">Others</h6>
+           <ol>
+               <li>Bluetooth: ${details.data.others.Bluetooth}</li>
+               <li>GPS: ${details.data.others.GPS}</li>
+               <li>NFC: ${details.data.others.NFC}</li>
+               <li>Radio: ${details.data.others.Radio}</li>
+               <li>USB: ${details.data.others.USB}</li>
+               <li>WLAN: ${details.data.others.WLAN}</li>
+                
+           </ol>
+           </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    `;
+    displayDetails.appendChild(detailsDiv);
+    // searchResult.style.display = 'none';
+}
+
+
+
+
+
+
+/* <div class="card" >
           <img src="${details.data.image}" class="card-img-top img-fluid p-4 mx-auto" alt="image">
           <div class="card-body p-5">
             <h5 class="card-title text-center">${details.data.name}</h5>
@@ -121,9 +173,4 @@ const displayPhoneDetails = details => {
            </div>
             </div>
           </div>
-        </div>
-    `;
-    displayDetails.appendChild(detailsDiv);
-    // searchResult.style.display = 'none';
-    
-}
+        </div> */
